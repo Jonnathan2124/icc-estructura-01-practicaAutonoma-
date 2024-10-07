@@ -4,7 +4,7 @@ public class MetodosOrdenamiento {
 
     // Método de burbuja tradicional con errores
     // Error encontrado: El metodo retorna un arreglo vacio (return new int[])
-    //Correccion: retorna un arreglo
+    // Correccion: retorna un arreglo
     public int[] burbujaTradicional(int[] arregloOriginal) {
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
 
@@ -48,7 +48,7 @@ public class MetodosOrdenamiento {
 
     // Método de burbuja tradicional con errores
     // Error encontrado: En el metodo de for(j<n)
-    // Correcion: Añadir el - 1 en el for
+    // Correccion: Añadir el - 1 en el for
     public int[] burbujaTradicionalTercero(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
@@ -69,7 +69,7 @@ public class MetodosOrdenamiento {
 
     // Método de selección con errores
     // Error encontrado: Falta el return
-    // Correcion: Añadir el return arreglo 
+    // Correccion: Añadir el return arreglo 
     public int[] seleccionPrimero(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
@@ -113,7 +113,7 @@ public class MetodosOrdenamiento {
 
     // Método de selección con errores
     // Error encontrado: linea 130 ( arreglo[i]); linea 132 (arreglo[IndiceMenor])
-    // Correcion: Cambiale los nombres por indiceMenor y i
+    // Correccion: Cambiale los nombres por indiceMenor y i
     public int[] seleccionTercero(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
@@ -135,16 +135,16 @@ public class MetodosOrdenamiento {
     }
 
     // Método de inserción con errores
-    // Error encontrado:
-    // Correcion: 
+    // Error encontrado: Cambio de signo en el metodo while
+    // Correccion: Cmbiar de signo y agregarle  =
     public int[] insercionPrimero(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
         for (int j = 1; j < arreglo.length; j++) {
             int key = arreglo[j];
-            int i = j + 1;
+            int i = j - 1;
 
-            while (i > 0 && arreglo[i] > key) {
+            while (i >= 0 && arreglo[i] > key) {
                 arreglo[i + 1] = arreglo[i];
                 i--;
             }
@@ -154,7 +154,8 @@ public class MetodosOrdenamiento {
     }
 
     // Método de inserción con errores
-    // Error encontrado:
+    // Error encontrado: En el segundo metodo for( la variable j)
+    // Correccion: Cambiar en el for por la variable i 
     public int[] insercionSegundo(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
@@ -162,8 +163,8 @@ public class MetodosOrdenamiento {
             int actual = arreglo[j];
 
             int i = j - 1;
-            for (; j >= 0 && arreglo[j] > actual; j--) {
-                arreglo[j + 1] = arreglo[j];
+            for (; i >= 0 && arreglo[i] > actual; i--) {
+                arreglo[i + 1] = arreglo[i];
             }
             arreglo[i + 1] = actual;
         }
@@ -171,21 +172,22 @@ public class MetodosOrdenamiento {
     }
 
     // Método de inserción con errores
-    // Error encontrado:
+    // Error encontrado: En el metodo While
+    // Correccion: en el (int i = j) agregarle el (- 1); cambiarle de signos y agregarle en el while; cambiar el (i++) a (i--); en el return cambiarle ( arreglo)
     public int[] insercionTercero(int[] arregloOriginal) {
 
         int[] arreglo = Arrays.copyOf(arregloOriginal, arregloOriginal.length);
         for (int j = 1; j < arreglo.length; j++) {
             int key = arreglo[j];
-            int i = j;
+            int i = j - 1;
 
-            while (i > 0 && arreglo[i] < key) {
+            while (i >= 0 && arreglo[i] > key) {
                 arreglo[i + 1] = arreglo[i];
-                i++;
+                i--;
             }
             arreglo[i + 1] = key;
         }
-        return new int[] { 15, 34, 1, 2, 5, 6, 7, 10 };
+        return arreglo;
     }
 
 }
